@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AIrunsfirms — The AI Automation Partner Built Exclusively for Consulting Firms. Automate proposals, onboarding, research, and more with cutting-edge AI agents." />
+  <meta name="theme-color" content="#07080c" />
+  <meta property="og:title" content="AIrunsfirms — AI Automation for Consulting Firms" />
+  <meta property="og:description" content="We build AI agents, automation workflows, and intelligent dashboards exclusively for consulting firms. Book a free audit." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://airunsfirms.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>AIrunsfirms — AI Automation for Consulting Firms</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Ambient particle field + cursor trail (canvas) -->
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"><span class="cursor-label" id="cursorLabel"></span></div>
+
+  <!-- Scroll progress hairline -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ========== NAV ========== -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-wordmark"><img src="logo.png" alt="AIrunsfirms" class="nav-logo-mark" width="23" height="30" />AI<span>runsfirms</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#work">Results</a>
+        <a href="#founder">Founder</a>
+        <a href="https://cal.com/shivanshbisht/discoverycall" target="_blank" rel="noopener noreferrer" class="nav-links-cta">Book a Call</a>
+      </nav>
+      <a href="https://cal.com/shivanshbisht/discoverycall" target="_blank" rel="noopener noreferrer" class="btn btn-line nav-cta" data-cursor="→">Book a Call<span class="btn-arrow">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+      <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
+      <div class="aurora" aria-hidden="true"></div>
+      <div class="hero-grid-lines" aria-hidden="true"></div>
+      <div class="hero-3d" id="hero3d" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow hero-eyebrow"><span class="eyebrow-rule"></span>Exclusively for consulting firms</p>
+        <h1 class="hero-headline">
+          <span class="line"><span class="line-inner">Your firm, running on</span></span>
+          <span class="line"><span class="line-inner"><em class="accent rotator" id="rotator"><span class="rotator-word is-active">intelligence.</span><span class="rotator-word">automation.</span><span class="rotator-word">autopilot.</span></em></span></span>
+        </h1>
+        <p class="hero-sub">AIrunsfirms builds the AI agents, automations, and dashboards that erase the busywork inside consulting firms — so your people spend their hours on judgment, not admin.</p>
+        <div class="hero-ctas">
+          <a href="https://cal.com/shivanshbisht/discoverycall" target="_blank" rel="noopener noreferrer" class="btn btn-solid" data-magnetic data-cursor="→">Book a Free Audit<span class="btn-arrow">→</span></a>
+          <a href="#services" class="btn btn-quiet">Explore the work</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="stat-num" data-count="38" data-suffix="%">0</span><span class="stat-lbl">Average overhead saved</span></div>
+          <div class="hero-stat"><span class="stat-num" data-count="1200" data-suffix="+">0</span><span class="stat-lbl">Hours freed per month</span></div>
+          <div class="hero-stat"><span class="stat-num" data-count="7" data-suffix="">0</span><span class="stat-lbl">Firms transformed</span></div>
+        </div>
+      </div>
+      <a href="#services" class="scroll-cue" aria-label="Scroll to services"><span class="scroll-cue-line"></span>Scroll</a>
+    </section>
+
+    <!-- ========== TRUSTED BY (full-bleed marquee) ========== -->
+    <section class="trusted">
+      <span class="trusted-label">Trusted by boutique &amp; mid-market practices</span>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Rothwell Advisory</span><i>⬡</i><span>Meridian Consulting</span><i>⬡</i><span>Vantage Strategy Group</span><i>⬡</i><span>Apexon Partners</span><i>⬡</i><span>Clearfield Group</span><i>⬡</i><span>Helix Advisory</span><i>⬡</i><span>Stonebridge Consulting</span><i>⬡</i><span>Crestmark Partners</span><i>⬡</i>
+          <span>Rothwell Advisory</span><i>⬡</i><span>Meridian Consulting</span><i>⬡</i><span>Vantage Strategy Group</span><i>⬡</i><span>Apexon Partners</span><i>⬡</i><span>Clearfield Group</span><i>⬡</i><span>Helix Advisory</span><i>⬡</i><span>Stonebridge Consulting</span><i>⬡</i><span>Crestmark Partners</span><i>⬡</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICES — bento grid ========== -->
+    <section class="services" id="services">
+      <span class="section-ghost" aria-hidden="true" data-parallax="0.12">01</span>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-rule"></span>01 — What we build</p>
+          <h2 class="section-title">AI systems engineered for<br /><em class="accent">consulting operations.</em></h2>
+          <p class="section-sub">Every solution is custom-built for the rhythms, compliance standards, and client expectations of consulting firms.</p>
+        </header>
+
+        <div class="bento">
+          <article class="bento-card bento-card--wide reveal" data-tilt data-spotlight>
+            <span class="bento-flag">Most requested</span>
+            <span class="bento-no">08</span>
+            <h3>AI Project Dashboard</h3>
+            <p>A live command centre giving leadership real-time visibility into every active engagement — team workload, milestone progress, and client status, powered by AI.</p>
+            <div class="bento-viz" aria-hidden="true">
+              <span class="viz-bar" style="--h:42%"></span><span class="viz-bar" style="--h:68%"></span><span class="viz-bar" style="--h:35%"></span><span class="viz-bar" style="--h:82%"></span><span class="viz-bar" style="--h:55%"></span><span class="viz-bar" style="--h:91%"></span><span class="viz-bar" style="--h:64%"></span>
+            </div>
+            <span class="bento-tags">Real-time · Team coordination</span>
+          </article>
+
+          <article class="bento-card reveal" data-tilt data-spotlight>
+            <span class="bento-no">01</span>
+            <h3>Workflow &amp; Process Automation</h3>
+            <p>Proposal generation, client reporting, and approval workflows — end-to-end. Documents move themselves; your consultants only review.</p>
+            <span class="bento-tags">Proposals · Reporting · Approvals</span>
+          </article>
+
+          <article class="bento-card reveal" data-tilt data-spotlight>
+            <span class="bento-no">02</span>
+            <h3>AI-Powered Research &amp; Analysis</h3>
+            <p>Agents that scour market data, competitor intel, and industry reports — structured synthesis in minutes, not analyst-days.</p>
+            <span class="bento-tags">Market intel · Competitor analysis</span>
+          </article>
+
+          <article class="bento-card reveal" data-tilt data-spotlight>
+            <span class="bento-no">03</span>
+            <h3>Client Onboarding Automation</h3>
+            <p>From intake forms to discovery-call prep to welcome kits — handled automatically, on-brand, on time, every time.</p>
+            <span class="bento-tags">Intake · Kickoff prep · Welcome flows</span>
+          </article>
+
+          <article class="bento-card reveal" data-tilt data-spotlight>
+            <span class="bento-no">04</span>
+            <h3>AI Knowledge Assistant</h3>
+            <p>A private assistant trained on your firm's past work, playbooks, and SOPs — instant, sourced answers from your own institutional memory.</p>
+            <span class="bento-tags">Internal AI · SOPs · Memory</span>
+          </article>
+
+          <article class="bento-card reveal" data-tilt data-spotlight>
+            <span class="bento-no">05</span>
+            <h3>CRM &amp; Pipeline Automation</h3>
+            <p>Contacts enriched, deals updated, follow-ups triggered — your CRM stays current without a single manual entry.</p>
+            <span class="bento-tags">Enrichment · Follow-ups · Pipeline</span>
+          </article>
+
+          <article class="bento-card reveal" data-tilt data-spotlight>
+            <span class="bento-no">06</span>
+            <h3>Document &amp; Contract Generation</h3>
+            <p>Proposals, NDAs, engagement letters — generated from your templates, auto-filled with client data, sent for e-signature.</p>
+            <span class="bento-tags">Contracts · NDAs · Proposals</span>
+          </article>
+
+          <article class="bento-card bento-card--tall reveal" data-tilt data-spotlight>
+            <span class="bento-no">07</span>
+            <h3>Custom AI Agents</h3>
+            <p>Purpose-built autonomous agents that retrieve, process, and act on information from your past work — surfacing exactly what you need, when you need it.</p>
+            <div class="bento-orbit" aria-hidden="true"><span class="orbit-ring"></span><span class="orbit-ring orbit-ring--2"></span><span class="orbit-core">⬡</span></div>
+            <span class="bento-tags">Autonomous · Memory · Retrieval</span>
+            <a href="https://cal.com/shivanshbisht/discoverycall" target="_blank" rel="noopener noreferrer" class="service-link" data-cursor="→">Discuss this capability<span class="btn-arrow">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROCESS — horizontal phases ========== -->
+    <section class="process" id="process">
+      <span class="section-ghost" aria-hidden="true" data-parallax="0.12">02</span>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-rule"></span>02 — The process</p>
+          <h2 class="section-title">From first call to<br /><em class="accent">full automation.</em></h2>
+          <p class="section-sub">A structured, three-phase approach that respects your firm's complexity while delivering results fast.</p>
+        </header>
+
+        <div class="process-track" id="processTrack">
+          <div class="process-line" aria-hidden="true"><span class="process-line-fill" id="processLineFill"></span></div>
+          <div class="process-row">
+            <div class="process-step reveal">
+              <span class="process-marker" aria-hidden="true"></span>
+              <span class="process-big">01</span>
+              <div class="process-meta"><span class="process-no">Phase 01</span><span class="process-time">1 week</span></div>
+              <h3>Discovery &amp; Automation Audit</h3>
+              <p>We map your firm's workflows end-to-end — identifying where time is wasted, where errors occur, and where AI will deliver the greatest ROI.</p>
+            </div>
+            <div class="process-step reveal">
+              <span class="process-marker" aria-hidden="true"></span>
+              <span class="process-big">02</span>
+              <div class="process-meta"><span class="process-no">Phase 02</span><span class="process-time">1 week</span></div>
+              <h3>Build &amp; Integration</h3>
+              <p>We build custom AI agents, automations, and integrations — connecting your CRM, document systems, and communication tools. No disruption.</p>
+            </div>
+            <div class="process-step reveal">
+              <span class="process-marker" aria-hidden="true"></span>
+              <span class="process-big">03</span>
+              <div class="process-meta"><span class="process-no">Phase 03</span><span class="process-time">Ongoing</span></div>
+              <h3>Launch, Train &amp; Scale</h3>
+              <p>We deploy, train your team, and monitor performance — then continuously optimise and expand your automation ecosystem as the firm grows.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Assurance strip -->
+        <div class="assurance reveal">
+          <div class="assurance-item"><h4>NDA-first process</h4><p>We sign before we ever see your workflows.</p></div>
+          <div class="assurance-item"><h4>1–2 week onboarding</h4><p>Live in under fourteen days, not months.</p></div>
+          <div class="assurance-item"><h4>SOC 2 compatible</h4><p>Enterprise-grade security protocols throughout.</p></div>
+          <div class="assurance-item"><h4>Zero data leaks — ever</h4><p>Public models never train on your data.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RESULTS — editorial rows ========== -->
+    <section class="work" id="work">
+      <span class="section-ghost" aria-hidden="true" data-parallax="0.12">03</span>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-rule"></span>03 — Results</p>
+          <h2 class="section-title">Real firms.<br /><em class="accent">Real transformation.</em></h2>
+        </header>
+
+        <div class="work-list">
+          <article class="work-row reveal" data-spotlight>
+            <div class="work-copy">
+              <p class="work-tag">Strategy firm · 45 consultants</p>
+              <h3 class="work-title">Proposal time cut from three days to four hours.</h3>
+              <p class="work-desc">An AI agent connected to their past-work library, client data, and slide templates — senior partners now review AI-drafted proposals instead of writing them.</p>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-val" data-count="92" data-suffix="%">0</span>
+              <span class="work-stat-lbl">Time saved</span>
+              <span class="work-stat-sub">3× more bids submitted</span>
+            </div>
+          </article>
+
+          <article class="work-row reveal" data-spotlight>
+            <div class="work-copy">
+              <p class="work-tag">M&amp;A advisory · 18 partners</p>
+              <h3 class="work-title">Research synthesis from eight hours to twenty minutes.</h3>
+              <p class="work-desc">Our research agent scans databases, news, and filings — delivering a structured brief in under twenty minutes, previously a full analyst day.</p>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-val" data-prefix="$" data-count="180" data-suffix="k">0</span>
+              <span class="work-stat-lbl">Annual savings</span>
+              <span class="work-stat-sub">96% faster research</span>
+            </div>
+          </article>
+
+          <article class="work-row reveal" data-spotlight>
+            <div class="work-copy">
+              <p class="work-tag">Management consulting · 120 staff</p>
+              <h3 class="work-title">Zero-touch client onboarding with AI.</h3>
+              <p class="work-desc">The entire flow automated — intake, NDA generation, kickoff scheduling, and briefing preparation. Six-plus hours of admin per client, gone.</p>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-val" data-count="6" data-suffix="hrs">0</span>
+              <span class="work-stat-lbl">Saved per client</span>
+              <span class="work-stat-sub">100% on-time onboarding</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOUNDER × BUILD IN PUBLIC ========== -->
+    <section class="founder" id="founder">
+      <span class="section-ghost" aria-hidden="true" data-parallax="0.12">04</span>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-rule"></span>04 — The founder</p>
+          <h2 class="section-title">Meet the founder —<br /><em class="accent">and watch him build.</em></h2>
+        </header>
+
+        <div class="founder-grid">
+          <!-- Sticky founder card -->
+          <aside class="founder-side reveal">
+            <div class="founder-card" data-tilt data-spotlight>
+              <div class="founder-frame">
+                <picture>
+                  <source srcset="founder.webp" type="image/webp" />
+                  <img src="founder.png" alt="Shivansh Bisht, founder of AIrunsfirms" width="926" height="926" loading="lazy" decoding="async" />
+                </picture>
+              </div>
+              <h3 class="founder-name">Shivansh Bisht</h3>
+              <p class="founder-role">18-year-old solo founder</p>
+              <blockquote class="founder-letter">
+                <p>Three years ago, automation was just a skill I picked up. Now I go into businesses and optimise their systems with AI infrastructure.</p>
+                <p>I'm a solo founder — AI does most of the work. There'd be no point automating other businesses if I couldn't automate my own.</p>
+              </blockquote>
+              <svg class="founder-sig" width="80" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 18C8 6 16 2 24 10C32 18 36 8 42 6C48 4 52 16 58 14C64 12 68 4 76 8" stroke="#c9a962" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              </svg>
+              <div class="founder-creds">
+                <div class="founder-cred"><span class="cred-val">3+</span><span class="cred-lbl">Years in AI &amp; automation</span></div>
+                <div class="founder-cred"><span class="cred-val">7</span><span class="cred-lbl">Firms transformed</span></div>
+                <div class="founder-cred"><span class="cred-val">$1M+</span><span class="cred-lbl">Client savings unlocked</span></div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Build log feed -->
+          <div class="logs">
+            <div class="logs-head reveal">
+              <p class="logs-kicker"><span class="live-dot" aria-hidden="true"></span>Build logs — recorded in public</p>
+              <p class="section-sub">Every client automation gets documented on camera — how these AI systems are designed, built, and deployed. No theory, just the actual work.</p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=ubGOEFvfJy4" target="_blank" rel="noopener noreferrer" class="log-entry reveal" data-spotlight data-cursor="▶">
+              <span class="log-index">Log 03</span>
+              <div class="log-thumb">
+                <img src="https://img.youtube.com/vi/ubGOEFvfJy4/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/ubGOEFvfJy4/hqdefault.jpg';" alt="The AI Mistake Firms Have Been Making Since 2025" loading="lazy" decoding="async" />
+                <span class="log-duration">10:45</span>
+                <span class="log-play" aria-hidden="true">▶</span>
+              </div>
+              <div class="log-info">
+                <p class="log-cat">Insights</p>
+                <h4 class="log-title">The AI Mistake Firms Have Been Making Since 2025</h4>
+                <span class="log-watch">Watch the build<span class="btn-arrow">→</span></span>
+              </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=j9tcM_jaYvM" target="_blank" rel="noopener noreferrer" class="log-entry reveal" data-spotlight data-cursor="▶">
+              <span class="log-index">Log 02</span>
+              <div class="log-thumb">
+                <img src="https://img.youtube.com/vi/j9tcM_jaYvM/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/j9tcM_jaYvM/hqdefault.jpg';" alt="Stop Paying for Work AI Already Does for Free" loading="lazy" decoding="async" />
+                <span class="log-duration">16:24</span>
+                <span class="log-play" aria-hidden="true">▶</span>
+              </div>
+              <div class="log-info">
+                <p class="log-cat">Workflow</p>
+                <h4 class="log-title">Stop Paying for Work AI Already Does for Free</h4>
+                <span class="log-watch">Watch the build<span class="btn-arrow">→</span></span>
+              </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=8UGVGuuGmwk" target="_blank" rel="noopener noreferrer" class="log-entry reveal" data-spotlight data-cursor="▶">
+              <span class="log-index">Log 01</span>
+              <div class="log-thumb">
+                <img src="https://img.youtube.com/vi/8UGVGuuGmwk/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/8UGVGuuGmwk/hqdefault.jpg';" alt="The Consulting Work AI Should've Taken Over Yesterday" loading="lazy" decoding="async" />
+                <span class="log-duration">14:12</span>
+                <span class="log-play" aria-hidden="true">▶</span>
+              </div>
+              <div class="log-info">
+                <p class="log-cat">Consulting</p>
+                <h4 class="log-title">The Consulting Work AI Should've Taken Over Yesterday</h4>
+                <span class="log-watch">Watch the build<span class="btn-arrow">→</span></span>
+              </div>
+            </a>
+
+            <div class="logs-foot reveal">
+              <a href="https://www.youtube.com/@shivanshbishtt?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-line" data-cursor="→">Subscribe on YouTube<span class="btn-arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FINAL CTA ========== -->
+    <section class="closing" id="contact">
+      <div class="aurora aurora--closing" aria-hidden="true"></div>
+      <div class="closing-marquee" aria-hidden="true">
+        <div class="closing-marquee-track"><span>Let's build — Let's build — Let's build — Let's build — Let's build — Let's build — </span><span>Let's build — Let's build — Let's build — Let's build — Let's build — Let's build — </span></div>
+      </div>
+      <div class="container">
+        <div class="closing-inner reveal">
+          <p class="eyebrow eyebrow--center"><span class="eyebrow-rule"></span>Ready to begin?<span class="eyebrow-rule"></span></p>
+          <h2 class="closing-title">Let's build your<br /><em class="accent">AI-powered firm.</em></h2>
+          <p class="closing-sub">Book a free 30-minute Automation Audit. We'll map your firm's highest-impact opportunities and show you exactly what's possible — no commitment, no jargon.</p>
+          <p class="closing-note"><span class="note-dot" aria-hidden="true"></span>Four audit slots remaining this month</p>
+          <a href="https://cal.com/shivanshbisht/discoverycall" target="_blank" rel="noopener noreferrer" class="btn btn-solid btn-lg" data-magnetic data-cursor="→">Book my free Automation Audit<span class="btn-arrow">→</span></a>
+          <div class="closing-assure">
+            <span>NDA protected</span><span class="assure-sep"></span><span>No commitment</span><span class="assure-sep"></span><span>30-minute call</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#top" class="nav-wordmark"><img src="logo.png" alt="AIrunsfirms" class="nav-logo-mark" width="23" height="30" />AI<span>runsfirms</span></a>
+          <p class="footer-tag">The AI automation partner built exclusively for consulting firms.</p>
+          <div class="footer-socials">
+            <a href="https://linkedin.com/in/shivansh-bisht" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://x.com/shivbuilds_" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">X</a>
+            <a href="https://instagram.com/shivansh.bishtt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+            <a href="mailto:shivansh@airunsfirms.com" aria-label="Email">Email</a>
+          </div>
+          <form class="footer-news" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓'; this.querySelector('input').value='';">
+            <label for="newsEmail">Weekly AI insights for consultancies</label>
+            <div class="footer-news-row">
+              <input id="newsEmail" type="email" placeholder="you@firm.com" required />
+              <button type="submit">Subscribe</button>
+            </div>
+          </form>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#services">Workflow Automation</a>
+          <a href="#services">AI Research Agents</a>
+          <a href="#services">Client Onboarding</a>
+          <a href="#services">Knowledge Assistant</a>
+          <a href="#services">CRM Automation</a>
+          <a href="#services">Document Generation</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#founder">About</a>
+          <a href="#work">Results</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <a href="mailto:shivansh@airunsfirms.com">shivansh@airunsfirms.com</a>
+          <a href="https://cal.com/shivanshbisht/discoverycall" target="_blank" rel="noopener noreferrer">Schedule a call →</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 AIrunsfirms. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

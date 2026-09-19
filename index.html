@@ -755,6 +755,124 @@ body.menu-open #menu{ clip-path:inset(0 0 0 0); pointer-events:auto; }
 @media (max-width:900px){ .fdr{ grid-template-columns:1fr; } .fdr-img{ max-width:320px; } }
 
 /* ============================================================
+   INSIDE THE LAB — social credibility glimpse
+   ============================================================ */
+#lab{ background:var(--base); position:relative; }
+.lab-grid{
+  display:grid;
+  grid-template-columns:1fr 1.06fr;
+  grid-template-areas:"intro collage" "social collage";
+  grid-template-rows:auto 1fr;
+  column-gap:clamp(30px,5vw,88px);
+  row-gap:clamp(26px,3.6vw,42px);
+  align-items:start;
+}
+.lab-intro{ grid-area:intro; }
+.lab-social{ grid-area:social; }
+.lab-collage{ grid-area:collage; align-self:center; }
+.lab-intro .hl{ margin-top:22px; }
+.lab-intro .lede{ margin-top:22px; max-width:40ch; }
+
+/* platform identity cards */
+.socs{ display:grid; gap:10px; max-width:440px; }
+.soc{
+  display:flex; align-items:center; gap:16px;
+  padding:16px 18px; border:1px solid var(--line); border-radius:14px;
+  background:var(--base-1);
+  transition:border-color .4s var(--e-out), background-color .4s var(--e-out), transform .4s var(--e-out);
+}
+.soc:hover{ border-color:rgba(217,155,60,.45); background:var(--base-2); transform:translateY(-2px); }
+.soc-ic{ width:22px; height:22px; flex:none; color:var(--mute); transition:color .4s var(--e-out), transform .5s var(--e-sp); }
+.soc-ic svg{ width:100%; height:100%; display:block; }
+.soc:hover .soc-ic{ color:var(--accent); transform:scale(1.12); }
+.soc-b{ display:block; min-width:0; }
+.soc-h{ display:block; font-size:15px; letter-spacing:-0.02em; color:var(--bone); }
+.soc-d{ display:block; font-size:12.5px; color:var(--mute-2); margin-top:3px; font-weight:350; }
+.soc-a{ margin-left:auto; color:var(--mute-2); font-size:13px; transition:transform .45s var(--e-out), color .4s ease; }
+.soc:hover .soc-a{ transform:translate(3px,-3px); color:var(--accent); }
+
+.lab-note{
+  margin-top:clamp(20px,2.4vw,28px); padding-top:20px; border-top:1px solid var(--line-2);
+  font-size:clamp(15px,1.35vw,18px); letter-spacing:-0.025em; color:var(--bone-2); line-height:1.4;
+}
+.lab-note em{ font-family:var(--ff-serif); font-style:italic; color:var(--accent); }
+.lab-ctas{ margin-top:22px; display:flex; gap:clamp(18px,2.6vw,34px); flex-wrap:wrap; }
+
+/* collage */
+.lab-collage{ position:relative; width:100%; aspect-ratio:1/0.86; }
+.tile-slot{
+  position:absolute; left:var(--l); top:var(--t); width:var(--w); z-index:var(--z);
+  transform:rotate(var(--r));
+  transition:transform .55s var(--e-out);
+}
+.tile-slot.lift{ z-index:40; transform:rotate(0deg); }
+.tile{
+  position:relative; display:block; width:100%; aspect-ratio:var(--ar);
+  border-radius:14px; overflow:hidden; border:1px solid var(--line);
+  background:var(--base-2); box-shadow:0 16px 38px rgba(0,0,0,.46);
+  transition:transform .45s var(--e-out), box-shadow .45s var(--e-out), border-color .45s var(--e-out);
+}
+.tile:hover{
+  transform:translateY(-7px) scale(1.03);
+  box-shadow:0 30px 64px rgba(0,0,0,.62);
+  border-color:rgba(217,155,60,.5);
+}
+.tile-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .65s var(--e-out); }
+.tile:hover .tile-img{ transform:scale(1.07); }
+
+/* typographic card shown until a real thumbnail is supplied */
+.tile-fb{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  padding:clamp(12px,1.15vw,16px);
+  background:
+    radial-gradient(130% 100% at 0% 0%, rgba(217,155,60,.17), transparent 58%),
+    linear-gradient(rgba(237,235,228,.028) 1px, transparent 1px) 0 0/100% 22px,
+    linear-gradient(90deg, rgba(237,235,228,.028) 1px, transparent 1px) 0 0/22px 100%,
+    linear-gradient(165deg, #12151C, #0A0C11);
+}
+.tile.has-img .tile-fb{ display:none; }
+.fb-k{ font-family:var(--ff-mono); font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); display:block; }
+.fb-k::after{ content:""; display:block; width:20px; height:1px; background:var(--accent); opacity:.55; margin-top:7px; }
+.fb-t{
+  display:block; margin-top:11px; padding-right:18px;
+  font-size:clamp(12.5px,1.05vw,16px); font-weight:450; letter-spacing:-0.03em; line-height:1.18; color:var(--bone);
+}
+.fb-dots{ margin-top:auto; display:flex; align-items:center; gap:0; opacity:.5; }
+.fb-dots i{ width:4px; height:4px; border-radius:50%; background:var(--mute); display:block; flex:none; }
+.fb-dots span{ width:13px; height:1px; background:var(--line-3); display:block; }
+
+.tile-pi{
+  position:absolute; top:11px; right:11px; z-index:3; width:19px; height:19px; color:var(--bone-2);
+  opacity:.55; transition:opacity .4s ease, color .4s ease, transform .5s var(--e-sp);
+}
+.tile-pi svg{ width:100%; height:100%; display:block; }
+.tile:hover .tile-pi{ opacity:1; color:var(--accent); transform:scale(1.12); }
+
+.tile-ov{
+  position:absolute; inset:0; z-index:2; display:flex; align-items:flex-end; padding:clamp(11px,1.1vw,15px);
+  background:linear-gradient(transparent 38%, rgba(7,8,12,.9));
+  opacity:0; transition:opacity .38s var(--e-out);
+}
+.tile:hover .tile-ov{ opacity:1; }
+.tile-cta{
+  font-family:var(--ff-mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--bone); display:flex; align-items:center; gap:7px;
+}
+.tile-cta i{ font-style:normal; transition:transform .45s var(--e-out); }
+.tile:hover .tile-cta i{ transform:translate(3px,-3px); }
+
+@media (max-width:1000px){
+  .lab-grid{ grid-template-columns:1fr; grid-template-areas:"intro" "collage" "social"; grid-template-rows:auto auto auto; }
+  .lab-collage{ max-width:520px; margin-inline:auto; }
+  .socs{ max-width:none; }
+}
+@media (max-width:560px){
+  .lab-collage{ aspect-ratio:1/0.92; }
+  .fb-t{ font-size:12.5px; }
+  .tile-pi{ width:16px; height:16px; top:9px; right:9px; }
+}
+
+/* ============================================================
    FAQ
    ============================================================ */
 #faq{ background:var(--base); }
@@ -1438,12 +1556,96 @@ html{ scroll-behavior:smooth; }
   </div>
 </section>
 
+<!-- ══════════════════ INSIDE THE LAB ══════════════════ -->
+<!--  SWAP IN REAL THUMBNAILS
+      Each tile below has an empty data-img attribute. Put an image path
+      or URL in it and that thumbnail is lazy-loaded into the tile, e.g.
+      data-img="media/reel-1.jpg" or a full https:// URL.
+      Leave it empty and the tile keeps its typographic card.
+      If an image fails to load the card comes back automatically.       -->
+<section id="lab" class="sec sec-pad">
+  <div class="wrap">
+    <div class="lab-grid">
+
+      <div class="lab-intro">
+        <div class="eyebrow"><span class="idx">06</span> Inside the lab</div>
+        <h2 class="d2 hl">Inside the<br><span class="ser acc">AI lab</span>.</h2>
+        <p class="lede">AI automation, agents and real systems — built, tested and pulled apart in public.</p>
+      </div>
+
+      <div class="lab-collage" id="labCollage">
+        <div class="tile-slot" style="--l:2%;--t:7%;--w:31%;--r:-2.4deg;--z:3">
+          <a class="tile" style="--ar:9/16" href="https://instagram.com/shivanshbisht.co" target="_blank" rel="noopener"
+             data-img="" aria-label="View on Instagram — AI agents, explained">
+            <span class="tile-fb"><span class="fb-k">Reel</span><span class="fb-t">AI agents, explained</span><span class="fb-dots"><i></i><span></span><i></i><span></span><i></i></span></span>
+            <span class="tile-pi"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.1" y="3.1" width="17.8" height="17.8" rx="5.2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/></svg></span>
+            <span class="tile-ov"><span class="tile-cta">View on Instagram <i>↗</i></span></span>
+          </a>
+        </div>
+        <div class="tile-slot" style="--l:32%;--t:0%;--w:56%;--r:1.5deg;--z:4">
+          <a class="tile" style="--ar:16/9" href="https://youtube.com/@shivanshbishtt" target="_blank" rel="noopener"
+             data-img="" aria-label="Watch on YouTube — Automation builds, end to end">
+            <span class="tile-fb"><span class="fb-k">Video</span><span class="fb-t">Automation builds, end to end</span><span class="fb-dots"><i></i><span></span><i></i><span></span><i></i></span></span>
+            <span class="tile-pi"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="1.2" y="5" width="21.6" height="14" rx="4.6" stroke="currentColor" stroke-width="1.5"/><path d="M10 8.9 16 12l-6 3.1V8.9Z" fill="currentColor"/></svg></span>
+            <span class="tile-ov"><span class="tile-cta">Watch on YouTube <i>↗</i></span></span>
+          </a>
+        </div>
+        <div class="tile-slot" style="--l:58%;--t:30%;--w:31%;--r:-1.8deg;--z:5">
+          <a class="tile" style="--ar:1/1" href="https://instagram.com/shivanshbisht.co" target="_blank" rel="noopener"
+             data-img="" aria-label="View on Instagram — Tools that hold up">
+            <span class="tile-fb"><span class="fb-k">Post</span><span class="fb-t">Tools that hold up</span><span class="fb-dots"><i></i><span></span><i></i><span></span><i></i></span></span>
+            <span class="tile-pi"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.1" y="3.1" width="17.8" height="17.8" rx="5.2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/></svg></span>
+            <span class="tile-ov"><span class="tile-cta">View on Instagram <i>↗</i></span></span>
+          </a>
+        </div>
+        <div class="tile-slot" style="--l:17%;--t:52%;--w:38%;--r:2deg;--z:6">
+          <a class="tile" style="--ar:4/3" href="https://youtube.com/@shivanshbishtt" target="_blank" rel="noopener"
+             data-img="" aria-label="Watch on YouTube — Systems, taken apart">
+            <span class="tile-fb"><span class="fb-k">Short</span><span class="fb-t">Systems, taken apart</span><span class="fb-dots"><i></i><span></span><i></i><span></span><i></i></span></span>
+            <span class="tile-pi"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="1.2" y="5" width="21.6" height="14" rx="4.6" stroke="currentColor" stroke-width="1.5"/><path d="M10 8.9 16 12l-6 3.1V8.9Z" fill="currentColor"/></svg></span>
+            <span class="tile-ov"><span class="tile-cta">Watch on YouTube <i>↗</i></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lab-social">
+        <div class="socs">
+          <a class="soc" href="https://youtube.com/@shivanshbishtt" target="_blank" rel="noopener">
+            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="1.2" y="5" width="21.6" height="14" rx="4.6" stroke="currentColor" stroke-width="1.5"/><path d="M10 8.9 16 12l-6 3.1V8.9Z" fill="currentColor"/></svg></span>
+            <span class="soc-b">
+              <span class="soc-h">@shivanshbishtt</span>
+              <span class="soc-d">Long-form builds and breakdowns</span>
+            </span>
+            <span class="soc-a">↗</span>
+          </a>
+          <a class="soc" href="https://instagram.com/shivanshbisht.co" target="_blank" rel="noopener">
+            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.1" y="3.1" width="17.8" height="17.8" rx="5.2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/></svg></span>
+            <span class="soc-b">
+              <span class="soc-h">@shivanshbisht.co</span>
+              <span class="soc-d">Short clips from inside the work</span>
+            </span>
+            <span class="soc-a">↗</span>
+          </a>
+        </div>
+
+        <p class="lab-note">Building in public. Sharing <em>what actually works</em>.</p>
+
+        <div class="lab-ctas">
+          <a class="tlink mag" href="https://youtube.com/@shivanshbishtt" target="_blank" rel="noopener">Explore the channel <span class="a">↗</span></a>
+          <a class="tlink mag" href="https://instagram.com/shivanshbisht.co" target="_blank" rel="noopener">Follow the journey <span class="a">↗</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════ FAQ ══════════════════ -->
 <section id="faq" class="sec sec-pad">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="eyebrow"><span class="idx">06</span> Questions</div>
+        <div class="eyebrow"><span class="idx">07</span> Questions</div>
         <h2 class="d2 hl">What partners<br>always <span class="ser acc">ask</span>.</h2>
       </div>
       <p class="lede">Short answers. The rest we cover on the call.</p>
@@ -2212,6 +2414,41 @@ $$('.faq-i').forEach(item => {
 });
 
 /* ═══════════════════════════════════════════════════════════
+   12b · INSIDE THE LAB — collage tiles
+        Thumbnails are opt-in: set data-img on a tile and it is
+        lazy-loaded in; if it is empty or fails, the typographic
+        card stays. No embeds, no third-party scripts.
+   ═══════════════════════════════════════════════════════════ */
+(function lab(){
+  const slots = $$('#labCollage .tile-slot'); if (!slots.length) return;
+
+  slots.forEach(slot => {
+    const tile = $('.tile', slot);
+
+    const src = (tile.dataset.img || '').trim();
+    if (src){
+      // the element has to be in the document before src is set, or
+      // loading="lazy" keeps it from ever fetching
+      const img = document.createElement('img');
+      img.className = 'tile-img';
+      img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+      img.addEventListener('load',  () => tile.classList.add('has-img'));
+      img.addEventListener('error', () => { tile.classList.remove('has-img'); img.remove(); });
+      tile.prepend(img);
+      img.src = src;
+    }
+
+    // raise and straighten the hovered tile (no :has dependency)
+    const on  = () => slot.classList.add('lift');
+    const off = () => slot.classList.remove('lift');
+    tile.addEventListener('mouseenter', on);
+    tile.addEventListener('mouseleave', off);
+    tile.addEventListener('focus', on);
+    tile.addEventListener('blur', off);
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════
    13 · CTA CONVERGENCE
    ═══════════════════════════════════════════════════════════ */
 (function converge(){
@@ -2257,12 +2494,19 @@ $$('.faq-i').forEach(item => {
    14 · REVEALS + COUNTERS
    ═══════════════════════════════════════════════════════════ */
 if (HAS_GSAP && ST && !RM){
-  gsap.utils.toArray('.sec-head, .cap-grid, .note, .fdr, .stack-cats, .f-top, .f-word')
+  gsap.utils.toArray('.sec-head, .cap-grid, .note, .fdr, .stack-cats, .lab-intro, .lab-social, .f-top, .f-word')
     .forEach(n => gsap.from(n, { y:34, opacity:0, duration:1, ease:'power3.out',
       scrollTrigger:{ trigger:n, start:'top 88%' } }));
 
   gsap.utils.toArray('.res').forEach(n => gsap.from(n, { y:38, opacity:0, duration:1, ease:'power3.out', scrollTrigger:{ trigger:n, start:'top 88%' } }));
   gsap.utils.toArray('.faq-i').forEach((n,i) => gsap.from(n, { y:22, opacity:0, duration:.75, delay:i*.03, ease:'power3.out', scrollTrigger:{ trigger:n, start:'top 92%' } }));
+
+  // collage tiles stagger in, then hand transforms back to CSS so hover works
+  if ($('#labCollage')) gsap.from('#labCollage .tile-slot', {
+    y:34, opacity:0, duration:.85, stagger:.085, ease:'power3.out',
+    clearProps:'transform,opacity',
+    scrollTrigger:{ trigger:'#lab', start:'top 76%' }
+  });
   gsap.from('#cta .rv-line > span', { yPercent:110, duration:1.05, stagger:.09, ease:'power4.out', scrollTrigger:{ trigger:'#cta', start:'top 62%' } });
   gsap.from('#cta .csub, #cta .cacts, #cta .cmeta', { y:24, opacity:0, duration:.9, stagger:.08, ease:'power3.out', scrollTrigger:{ trigger:'#cta', start:'top 55%' } });
 
